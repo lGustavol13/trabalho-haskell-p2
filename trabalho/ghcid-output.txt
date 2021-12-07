@@ -1,0 +1,15 @@
+backend/src/Backend.hs:39:20: error:
+    Pattern syntax in expression context:
+        \ serve
+          -> do dbcon <- connect getConn
+                .... -> modifyResponse
+                          $ setResponseStatus 500 "ERROR" BackendRoute_ListarA
+                          :/ () -> method
+                                     GET do res :: [Armazem] <- liftIO $ ... BackendRoute_BuscarA
+                                     :/ pid -> do res :: [Armazem] <- liftIO $ ...
+                                                  ....
+                                                 BackendRoute_Armazem
+                                                 :/ () -> method POST ... -> ...
+   |
+39 |   { _backend_run = \serve -> do
+   |                    ^^^^^^^^^^^^...
